@@ -33,9 +33,14 @@ $(document).ready(function() {
     });
 
     $("#buttonAddTodo").click(function() {
-        var input = $("#input_todo").val();
-        if(input != "") {
-            MyDatabase.insertRow(input);
+        var inputElement = $("#input_todo");
+        var inputVal = $("#input_todo").val();
+        if(inputVal != "") {
+            MyDatabase.insertRow(inputVal);
+            inputElement.val('');
+
+            MyDatabase.clearHtmlList();
+            MyDatabase.readRows();
         }
     });
 

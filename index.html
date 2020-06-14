@@ -56,14 +56,28 @@
     </header>
 
     <!-- Begin page content -->
-    <main role="main" class="flex-shrink-0">
+    <main role="main">
       <div class="container">
-        <div class="form-inline">
-          <div class="form-group mx-sm-3 mb-2">
+        <div id="containerAddTodo" class="form-inline mb-5">
+          <div class="form-group ">
             <input type="text" class="form-control" id="input_todo" placeholder="Digite sua tarefa">
           </div>
-          <button id="buttonAddTodo" class="btn btn-primary mb-2">Adicionar</button>
+
+          <button id="buttonAddTodo" class="btn btn-primary mt-3">Adicionar</button>
+
         </div>
+
+        <ul id="ul_todo_list" class="list-group-item">
+          <li id="li_item_to_clone" class="list-group-item">
+            
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input checkbox-todo-list">
+              <label class="form-check-label label-todo-list"></label>
+            </div>
+
+          </li>
+        </ul>
+
       </div>
     </main>
   </div>
