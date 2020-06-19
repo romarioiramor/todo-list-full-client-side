@@ -47,7 +47,7 @@ class Database {
         var self = this;
 
         this.connection.transaction(function (tx) { 
-            tx.executeSql('SELECT * FROM LIST', [], function (tx, results) { 
+            tx.executeSql('SELECT * FROM LIST ORDER BY done ASC, id DESC', [], function (tx, results) { 
 
                 var currentItem = 0;
 
@@ -73,9 +73,14 @@ class Database {
 
         if(row.done == "1") {
             li_item_to_clone.find(".checkbox-todo-list").prop("checked", 1);
+            li_item_to_clone.addClass("item-inactive")
+        }else{
+            li_item_to_clone.addClass('active');
         }
 
         li_item_to_clone.find(".label-todo-list").html(row.task);
+
+        li_item_to_clone.find(".checkbox-todo-list").attr('data-id', row.id)
 
         ul_todo_list.append(li_item_to_clone);
 
@@ -86,6 +91,16 @@ class Database {
 
         ul_todo_list.find("li:not(#li_item_to_clone)").remove();
 
+    }
+
+    updateRow(id, status){
+
+        this.connection.transaction(function (tx) { 
+           
+            var query = `UPDATE LIST SET done = ${status} WHERE id = ${id}`;
+
+            tx.executeSql(query); 
+         })
     }
 
 

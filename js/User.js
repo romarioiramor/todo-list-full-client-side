@@ -44,6 +44,11 @@ class User {
 
     logout() {
 
+            localStorage.setItem(this.KEY_USER_LOGGED, false);
+            localStorage.setItem(this.KEY_USER_LOGGED_EMAIL, null);    
+            sessionStorage.setItem(this.KEY_USER_LOGGED, false);
+            sessionStorage.setItem(this.KEY_USER_LOGGED_EMAIL, null);
+
     }
 
     isAuthenticated() {
@@ -57,6 +62,15 @@ class User {
 
         }
 
+
+        writeUserAuthenticated() {
+
+            var sessionStorageEmail = sessionStorage.getItem(this.KEY_USER_EMAIL);
+            var localStorageEmail = localStorage.getItem(this.KEY_USER_EMAIL);
+
+            $('#email_user_logged').html(sessionStorageEmail != "" ? sessionStorageEmail : localStorageEmail)
+
+        }
     
 
 }

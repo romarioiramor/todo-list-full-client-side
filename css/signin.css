@@ -64,3 +64,31 @@ body {
   height: 40px;
   font-size: 18px;
 }
+
+#email_user_logged {
+  color: white;
+  font-weight: bold;
+  margin-right: 30px;
+}
+
+.checkbox-todo-list {
+  width: 35px;
+  height: 35px;
+  margin-top: 12px;
+}
+
+.label-todo-list {
+  margin-left: 30px;
+  font-size: 35px;
+  margin-top: 1.5px;
+}
+
+.list-group-item.active {
+  border-bottom: white solid 2px;
+  
+}
+
+.item-inactive {
+  background: red;
+  border-bottom: white solid 2px;
+}
